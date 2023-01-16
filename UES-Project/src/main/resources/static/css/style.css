@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(175, 171, 171);
+    background-size: cover;
+}
+
+main{
+    width: 90%;
+    height: 200vh;
+    margin: 0 auto;
+    background-color: rgba(219, 234, 235, 0.7);
+    font-family: 'Heebo', sans-serif;
+}
+
+h1{
+    color: black;
+    font-family: 'Diplomata', cursive;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+h3{
+    color: black;
+    font-family: 'Diplomata', cursive;
+    padding-top: 2%;
+}
+
+form{
+    color: white;
+}
+
+#registracija{
+	margin-left: 35%;
+	padding-top: 30%;
+}
+
+#reg{
+    width: 50%;
+    height: 120vh;
+    margin: 0 auto;
+    background-color: rgba(219, 234, 235, 0.7);
+    font-family: 'Heebo', sans-serif;
+}
+
+#dugmiciAdmin{
+	margin-left: 18%;
+}
+
+#dugmiciProdavac{
+	margin-left: 23%;
+}
+
+#dugmiciKupac{
+	margin-left: 17%;
+}
+
+#DugmePrikazArtikala{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmePrikazKorisnike{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmePrikazKomentare{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmeOdjava{
+	padding: 20px;
+}
+
+#DugmePrikazPretrageArtikla{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmePrikazPretragePorudzbine{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#prikazDugicaSvihKorisnika{
+	margin-left: 37%;
+}
+
+#DugmePrikazAdmina{
+	padding: 10px;
+}
+
+#DugmePrikazProdavaca{
+	margin-left: 3%;
+	margin-right: 3%;
+	padding: 10px;
+}
+
+#DugmePrikazKupaca{
+	padding: 10px;
+}
+
+#DugmeArtikal{
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmeNarucivanje{
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmeIzmena{
+	margin-right: 2%;
+	padding: 20px;
+}
+
+#DugmeOdjavaKupac{
+	margin-right: 3%;
+	padding: 20px;
+}
