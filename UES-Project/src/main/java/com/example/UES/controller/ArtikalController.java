@@ -20,15 +20,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.UES.dto.ArtikalDTO;
+import com.example.UES.dto.KomentarDTO;
+import com.example.UES.elastic.model.ArtikalES;
+import com.example.UES.elastic.serviceInterface.ArtikalEsServiceInterface;
 import com.example.UES.model.Artikal;
 import com.example.UES.model.Komentar;
 import com.example.UES.model.Prodavac;
 import com.example.UES.serviceInterface.ArtikalServiceInterface;
 import com.example.UES.serviceInterface.KomentarServiceInterface;
 import com.example.UES.serviceInterface.ProdavacServiceInterface;
-
-import com.example.UES.dto.ArtikalDTO;
-import com.example.UES.dto.KomentarDTO;
 
 @RestController
 @RequestMapping(value = "api/artikal")
@@ -45,6 +46,8 @@ public class ArtikalController {
 	@Autowired
 	KomentarServiceInterface komentarServiceInterface;
 	
+	@Autowired
+	ArtikalEsServiceInterface artikalEsServiceInterface;
 	
 	@GetMapping
 	public ResponseEntity<List<ArtikalDTO>> getArtikle(){
@@ -83,6 +86,7 @@ public class ArtikalController {
 		a.setProdavac(prodavac);
 		
 		a = artikalServiceInterface.save(a);
+		artikalEsServiceInterface.index(new ArtikalES(a));
 		return new ResponseEntity<ArtikalDTO>(new ArtikalDTO(a), HttpStatus.CREATED);
 	}
 
@@ -136,25 +140,6 @@ public class ArtikalController {
 		
 	}
 	
-//	@GetMapping(value = "/{id}/korpaSesija")
-//	public ResponseEntity<List<ArtikalDTO>> getPocetnaKorpa(@PathVariable("id") Long id, HttpSession session) {
-//				
-//		Artikal artikal = artikalServiceInterface.findOne(id);
-//		
-//		List<ArtikalDTO> artikli = (List<ArtikalDTO>) session.getAttribute(ArtikalController.ODABRANI_ARTIKAL);
-//
-//		if (!artikli.contains(artikal)) {
-//			for (Artikal ar : artikli) {
-//				ArtikalDTO dto = new ArtikalDTO(artikal);
-//				artikalDTO.add(dto);
-//			}
-//			artikli.add(artikal);
-//			System.out.println("ARTIKAL KOJI TREBA JE: " + artikal.getNaziv());
-//		}
-//
-//		return new ResponseEntity<List<ArtikalDTO>>(artikli, HttpStatus.OK);
-//	}
-	
 	@SuppressWarnings("unchecked")
 	@GetMapping(value = "/pocetnaKorpa")
 	public ModelAndView pocetnaKorpa(@RequestParam Long id, HttpSession session ) throws IOException {
@@ -172,6 +157,44 @@ public class ArtikalController {
 
 		return rezultat;
 	}
+	
+	@GetMapping(value = "/{id}/korpaSesija")
+	public ResponseEntity<ArtikalDTO> getPocetnaKorpa(@PathVariable("id") Long id, HttpSession session){
+				
+		Artikal artikal = artikalServiceInterface.findOne(id);
+		
+		if(artikal == null) {
+			return new ResponseEntity<ArtikalDTO>(HttpStatus.NOT_FOUND);
+		}else {
+			
+			Artikal a = (Artikal) session.getAttribute(ArtikalController.ODABRANI_ARTIKAL);
+			List<ArtikalDTO> artikalDTO = new ArrayList<ArtikalDTO>();
 
+			ArtikalDTO dto = new ArtikalDTO(a);
+			artikalDTO.add(dto);
+
+			return new ResponseEntity<ArtikalDTO>(new ArtikalDTO(artikal), HttpStatus.OK);
+		}
+				
+	}
+		
+	@GetMapping(value = "/{id}/artikli")
+	public ResponseEntity<List<ArtikalDTO>> getArtikleProdavcaKodAdmina(@PathVariable("id") Long id){
+				
+		Prodavac prodavac = prodavacServiceInterface.findOne(id);
+		
+		if(prodavac == null) {
+			return new ResponseEntity<List<ArtikalDTO>>(HttpStatus.NOT_FOUND);
+		}else {
+			List<Artikal> artikli = artikalServiceInterface.findAllByProdavac(prodavac);
+			List<ArtikalDTO> artikalDTO = new ArrayList<ArtikalDTO>();
+			for (Artikal artikal : artikli) {
+				ArtikalDTO dto = new ArtikalDTO(artikal);
+				artikalDTO.add(dto);
+			}
+			return new ResponseEntity<List<ArtikalDTO>>(artikalDTO, HttpStatus.OK);
+		}
+		
+	}
 
 }
