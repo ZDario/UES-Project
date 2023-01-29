@@ -24,6 +24,7 @@
     <script src="js/prodavci.js"></script>
     <script src="js/kupci.js"></script>
     <script src="js/komentar.js"></script>
+    <script src="js/search.js"></script>
     
     <!-- Ukljucivanje css-a -->
     <link rel="stylesheet" href="css/style.css">
@@ -365,6 +366,142 @@
 		    <button class="btn btn-primary" onclick="odrediPrikaz('sviProdavci')" id="DugmePrikazProdavaca">Prodavci</button>
 		    <button class="btn btn-primary" onclick="odrediPrikaz('sviKupci')" id="DugmePrikazKupaca">Kupci</button>		    
 	    </div>
+
+<!-- PRETRAGA ARTIKLA ---------------------------------------------------------------------------------------------------------------------- -->
+			
+		<div id="pretragaZaArtikal" style="display: none;">
+						
+			<div id="pretragaArtikla">	
+			
+		      	<div style="margin-top: 3%;">
+		   			<label id="labela" style="margin-right: 4.3%; font-size: 23px;">Pretrazite artikle po nazivu</label>
+		   			<label id="labela" style="margin-right: 5.2%; font-size: 23px;">Pretrazite artikle po opisu</label>
+		   			
+		   			<label id="labela" style="margin-right: 10%; font-size: 23px;">Pretrazite cenu artikla od-do:</label>
+		   		</div>
+			
+		        <div class="d-flex">             		
+		    	    <input type="text" id="naziv" style="margin-right: 10%;" placeholder="Unesite naziv artikla"/><br/><br/>	 		    
+				    <input type="text" id="opisPretraga" style="margin-right: 10%;" placeholder="Unesite opis artikla"/><br/><br/>		
+				    
+				    <input type="text" id="cenaFrom" style="margin-right: 1%;" placeholder="OD:"/><br/><br/>	
+				    <input type="text" id="cenaTo" style="margin-right: 10%;" placeholder="DO:"/><br/><br/>	    
+		        </div>
+		              
+		        <div style="margin-top: 1%;">
+		           <input type="submit" value="Pretrazi" style="margin-right: 18.2%;" class="btn btn-success" id="btnNazivArtikla"/>  
+		           <input type="submit" style="margin-right: 18.4%;" value="Pretrazi" class="btn btn-success" id="btnOpisArtikla"/> 
+		           
+		           <input type="submit" style="margin-right: 1%;" value="Pretrazi" class="btn btn-success" id="btnCenaArtikla"/>
+		        </div>
+	        
+	        </div>
+	        
+	        <div id="pretragaArtiklaDole">
+	        
+	        	 <div style="margin-top: 3%;">
+		   			<label id="labela" style="margin-right: 5%; font-size: 23px;">Pretrazite artikle po nazivu i ceni (AND operator):</label>
+		   			<label id="labela" style="margin-right: 1%; font-size: 23px;">Pretrazite artikle po nazivu ili ceni (OR operator):</label>
+		   		</div>
+			
+				<div style="display: flex;">
+				
+			        <div style="flex: 0 0 41.9%;">             		
+			    	    <input type="text" id="nazivAnd" style="margin-right: 10%;" placeholder="NAZIV:"/><br/><br/>	 		    	
+					    <input type="text" id="cenaFromAnd" style="margin-right: 1%;" placeholder="CENA OD:"/><br/><br/>	
+					    <input type="text" id="cenaToAnd" style="margin-right: 10%;" placeholder="CENA DO:"/><br/><br/>	 				       
+			        </div>
+			        
+			        <div style="flex: 1;">
+			        	<input type="text" id="nazivOr" placeholder="NAZIV:"/><br/><br/>	 		    	
+					    <input type="text" id="cenaFromOr" placeholder="CENA OD:"/><br/><br/>	
+					    <input type="text" id="cenaToOr" placeholder="CENA DO:"/><br/><br/>	
+			        
+			        </div>       
+		        </div>
+		              
+		        <div style="margin-top: 1%;">	           
+		           <input type="submit" style="margin-right: 35.7%;" value="Pretrazi" class="btn btn-success" id="btnNazivAndCenaArtikla"/>
+		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnNazivOrCenaArtikla"/>
+		        </div>
+		        
+		        <h3>Rezultat pretrage:</h3>
+				<pre>
+			    	<span id="result"></span>
+				</pre>
+		                
+	        </div>
+        
+        </div>
+		
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- PRETRAGA PORUDZBINE---------------------------------------------------------------------------------------------------------------------- -->
+			
+		<div id="pretragaZaPorudzbinu" style="display: none;">
+						
+			<div id="pretragaPorudzbinaGore">	
+			
+		      	<div style="margin-top: 3%;">
+		   			<label id="labela" style="margin-right: 4.3%; font-size: 23px;">Pretrazite porudzbinu po komentaru</label>		   			
+		   			<label id="labela" style="margin-right: 8%; font-size: 23px;">Pretrazite porudzbinu po oceni od-do:</label>
+		   			<label id="labela" style="margin-right: 0%; font-size: 23px;">Pretrazite porudzbinu po ceni od-do:</label>
+		   		</div>
+			
+		        <div class="d-flex">             		
+		    	    <input type="text" id="komentarPorudzbine" style="margin-right: 16.8%;" placeholder="Unesite komentar"/><br/><br/>	 		    		
+				    
+				    <input type="text" id="ocenaFrom" style="margin-right: 1%;" placeholder="OD:"/><br/><br/>	
+				    <input type="text" id="ocenaTo" style="margin-right: 6.4%;" placeholder="DO:"/><br/><br/>	
+				    
+				    <input type="text" id="cenaPFrom" style="margin-right: 1%;" placeholder="OD:"/><br/><br/>	
+				    <input type="text" id="cenaPTo" style="margin-right: 10%;" placeholder="DO:"/><br/><br/>    
+		        </div>
+		              
+		        <div style="margin-top: 1%;">
+		           <input type="submit" value="Pretrazi" style="margin-right: 25%;" class="btn btn-success" id="btnKomentarPorudzbine"/>  		           
+		           <input type="submit" style="margin-right: 30.3%;" value="Pretrazi" class="btn btn-success" id="btnOcenaPorudzbine"/>
+		           <input type="submit" style="margin-right: 1%;" value="Pretrazi" class="btn btn-success" id="btnCenaPorudzbine"/>
+		        </div>
+	        
+	        </div>
+	        
+	        <div id="pretragaPorudzbineDole">
+	        
+	        	 <div style="margin-top: 3%;">
+		   			<label id="labela" style="margin-right: 5%; font-size: 23px;">Pretrazite porudzninu po komentaru i oceni (AND operator):</label>
+		   			<label id="labela" style="margin-right: 1%; font-size: 23px;">Pretrazite porudzninu po komentaru ili oceni (OR operator):</label>
+		   		</div>
+			
+				<div style="display: flex;">
+				
+			        <div style="flex: 0 0 49.7%;">             		
+			    	    <input type="text" id="komentarAnd" style="margin-right: 10%;" placeholder="KOMENTAR"/><br/><br/>	 		    	
+					    <input type="text" id="ocenaFromAnd" style="margin-right: 1%;" placeholder="OCENA OD:"/><br/><br/>	
+					    <input type="text" id="ocenaToAnd" style="margin-right: 10%;" placeholder="OCENA DO:"/><br/><br/>	 				       
+			        </div>
+			        
+			        <div style="flex: 1;">
+			        	<input type="text" id="komentarOr" placeholder="KOMENTAR"/><br/><br/>	 		    	
+					    <input type="text" id="ocenaFromOr" placeholder="OCENA OD:"/><br/><br/>	
+					    <input type="text" id="ocenaToOr" placeholder="OCENA DO:"/><br/><br/>	
+			        
+			        </div>       
+		        </div>
+		              
+		        <div style="margin-top: 1%;">	           
+		           <input type="submit" style="margin-right: 43.4%;" value="Pretrazi" class="btn btn-success" id="btnKomentarAndOcenaPorudzbine"/>
+		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnKomentarOrOcenaPorudzbine"/>
+		        </div>
+		        
+		        <h3>Rezultat pretrage:</h3>
+				<pre>
+			    	<span id="resultPorudzbina"></span>
+				</pre>
+		                
+	        </div>
+        
+        </div>
 		
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
 
