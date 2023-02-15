@@ -584,3 +584,7 @@ function dajProdavce(id){
         }
     });
 }
+
+function ZatvoriArtikle(){
+	$('#artikliTableProdavac').hide();
+}

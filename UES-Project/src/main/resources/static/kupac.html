@@ -188,6 +188,7 @@
             </div>
           
             <button onclick="DodajKomentar()" type="submit" class="btn btn-primary">Dodaj</button>
+            <button id="nazad" class="btn btn-primary" onclick="ZatvoriDodavanjeKomentare()">Vrati</button> 
         
         </div>
 
@@ -250,13 +251,13 @@
 		           <input type="submit" style="margin-right: 35.7%;" value="Pretrazi" class="btn btn-success" id="btnNazivAndCenaArtikla"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnNazivOrCenaArtikla"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguArtikal()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="result"></span>
 				</pre>
 		                
-	        </div>
+	        </div>  
         
         </div>
 		
@@ -319,7 +320,7 @@
 		           <input type="submit" style="margin-right: 43.4%;" value="Pretrazi" class="btn btn-success" id="btnKomentarAndOcenaPorudzbine"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnKomentarOrOcenaPorudzbine"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguPorudzbine()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="resultPorudzbina"></span>

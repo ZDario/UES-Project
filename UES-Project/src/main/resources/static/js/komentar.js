@@ -103,6 +103,10 @@ function ZatvoriKomentare(){
 	$('#komentariTablee').hide();
 }
 
+function ZatvoriDodavanjeKomentare(){
+	$('#dodajKomentar').hide();
+}
+
 function ZatvoriKomentareKodProdavca(){
 	$('#komentariTableProdavac').hide();
 }

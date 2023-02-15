@@ -17,6 +17,15 @@ function pokaziDugmiceKorisnika(){
 	$('#DugmePrikazPretragePorudzbine').hide();
 }
 
+function ZatvoriPretraguArtikal(){
+	$('#pretragaZaArtikal').hide();
+}
+
+function ZatvoriPretraguPorudzbine(){
+	$('#pretragaZaPorudzbinu').hide();
+}
+
+
 function login(){
 		
     var greska = "";

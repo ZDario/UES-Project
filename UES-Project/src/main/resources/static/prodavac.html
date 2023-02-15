@@ -58,7 +58,8 @@
 	  
 	            </tbody>
 	        </table>
- 	        <button id="dodavanje" class="btn btn-success" onclick="odrediPrikaz('dodajArtikal')">Dodaj artikal</button>  
+ 	        <button id="dodavanje" class="btn btn-success" onclick="odrediPrikaz('dodajArtikal')">Dodaj artikal</button>
+ 	        <button id="nazad" class="btn btn-primary" onclick="ZatvoriArtikle()">Vrati</button>   
 		</div>
 		
 <!-- Forma za dodavanje artikla prodavca-->
@@ -180,14 +181,14 @@
 		           <input type="submit" style="margin-right: 35.7%;" value="Pretrazi" class="btn btn-success" id="btnNazivAndCenaArtikla"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnNazivOrCenaArtikla"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguArtikal()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="result"></span>
 				</pre>
 		                
 	        </div>
-        
+       
         </div>
 		
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
@@ -249,7 +250,7 @@
 		           <input type="submit" style="margin-right: 43.4%;" value="Pretrazi" class="btn btn-success" id="btnKomentarAndOcenaPorudzbine"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnKomentarOrOcenaPorudzbine"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguPorudzbine()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="resultPorudzbina"></span>

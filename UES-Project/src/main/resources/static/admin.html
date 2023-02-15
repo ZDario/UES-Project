@@ -181,7 +181,7 @@
 	            </tbody>
 	        </table>
 	        <button id="dodavanjeProdavca" class="btn btn-success" onclick="odrediPrikaz('dodajProdavca')">Dodaj prodavca</button>
-	        <button id="nazad" class="btn btn-primary" onclick="vratiNaPocetnuProdavci()">Vrati</button>
+	        <button id="nazad" class="btn btn-primary" onclick="vratiNaPocetnuAdmin()">Vrati</button>
 		</div>
 <!-- Forma za dodavanje prodavca -->
 
@@ -250,7 +250,7 @@
 	            </tbody>
 	        </table>
 	        <button id="dodavanjeKupca" class="btn btn-success" onclick="odrediPrikaz('dodajKupca')">Dodaj kupca</button>
-	        <button id="nazad" class="btn btn-primary" onclick="vratiNaPocetnuKupac()">Vrati</button>
+	        <button id="nazad" class="btn btn-primary" onclick="vratiNaPocetnuAdmin()">Vrati</button>
 		</div>
 <!-- Forma za dodavanje kupca -->
 
@@ -364,7 +364,8 @@
 	    <div id="prikazDugicaSvihKorisnika" style="display: none;">
 		    <button class="btn btn-primary" onclick="odrediPrikaz('sviAdministratori')" id="DugmePrikazAdmina">Administratori</button>
 		    <button class="btn btn-primary" onclick="odrediPrikaz('sviProdavci')" id="DugmePrikazProdavaca">Prodavci</button>
-		    <button class="btn btn-primary" onclick="odrediPrikaz('sviKupci')" id="DugmePrikazKupaca">Kupci</button>		    
+		    <button class="btn btn-primary" onclick="odrediPrikaz('sviKupci')" id="DugmePrikazKupaca">Kupci</button>
+		    <button id="nazad" class="btn btn-primary" onclick="vratiNaPocetnuAdmin()">Vrati</button>		    
 	    </div>
 
 <!-- PRETRAGA ARTIKLA ---------------------------------------------------------------------------------------------------------------------- -->
@@ -424,7 +425,7 @@
 		           <input type="submit" style="margin-right: 35.7%;" value="Pretrazi" class="btn btn-success" id="btnNazivAndCenaArtikla"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnNazivOrCenaArtikla"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguArtikal()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="result"></span>
@@ -493,7 +494,7 @@
 		           <input type="submit" style="margin-right: 43.4%;" value="Pretrazi" class="btn btn-success" id="btnKomentarAndOcenaPorudzbine"/>
 		           <input type="submit" value="Pretrazi" class="btn btn-success" id="btnKomentarOrOcenaPorudzbine"/>
 		        </div>
-		        
+		        <button id="nazad" class="btn btn-primary" onclick="ZatvoriPretraguPorudzbine()">Vrati</button>
 		        <h3>Rezultat pretrage:</h3>
 				<pre>
 			    	<span id="resultPorudzbina"></span>

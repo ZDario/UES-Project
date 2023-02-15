@@ -230,6 +230,13 @@ function vratiNaPocetnuAdmin(){
 	$('#DugmeOdjava').show();
 	$('#DugmePrikazArtikala').show();
 	$('#DugmePrikazKorisnike').show();
+	$('#DugmePrikazKomentare').show();
+	$('#DugmePrikazPretrageArtikla').show();
+	$('#DugmePrikazPretragePorudzbine').show();
+	$('#DugmePrikazKorisnike').show();
+	$('#prikazDugicaSvihKorisnika').hide();
+	$('#prodavciTable').hide();
+	$('#kupciTable').hide();
 }
 
 function vratiSaDodavanjaIizmeneAdmin(){
