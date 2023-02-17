@@ -21,7 +21,6 @@ public class PorudzbinaMapper {
 				.ocena(porudzbinaES.getOcena())
 				.komentar(porudzbinaES.getKomentar())
 				.anonimanKomentar(porudzbinaES.isAnonimanKomentar())
-				.cena(porudzbinaES.getCena())
 				.build();
 	}
 	

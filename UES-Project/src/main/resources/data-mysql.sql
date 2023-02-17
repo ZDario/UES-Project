@@ -34,9 +34,9 @@ INSERT INTO artikal_akcija(akcija, artikal) VALUES(3, 2);
 INSERT INTO artikal_akcija(akcija, artikal) VALUES(2, 3);
 
 --PORUDZBINE
-INSERT INTO porudzbina(satnica, ocena, komentar, cena, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik) VALUES('2020-05-03', 4, 'Nije los artikal, bio sam gladan hleb mi je prijao, brzo je i dostavljeno!', 200, true, true, true, 3);
-INSERT INTO porudzbina(satnica, ocena, komentar, cena, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik) VALUES('2021-10-05', 5, 'Odlican artikal i zaista brza dostava kada zelite banane!', 150, true, true, true, 4);
-INSERT INTO porudzbina(satnica, ocena, komentar, cena, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik) VALUES('2021-11-08', 2, 'Ne svidja mi se artikal, cini mi se da mu je istekao rok, ovo mleko treba baciti!', 120, true, false, true, 2);
+INSERT INTO porudzbina(satnica, ocena, komentar, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik, artikal) VALUES('2020-05-03', 4, 'Nije los artikal, bio sam gladan hleb mi je prijao, brzo je i dostavljeno!', true, true, true, 3, 2);
+INSERT INTO porudzbina(satnica, ocena, komentar, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik, artikal) VALUES('2021-10-05', 5, 'Odlican artikal i zaista brza dostava kada zelite banane!', true, true, true, 4, 2);
+INSERT INTO porudzbina(satnica, ocena, komentar, dostavljeno, anoniman_komentar, arhiviran_komentar, korisnik, artikal) VALUES('2021-11-08', 2, 'Ne svidja mi se artikal, cini mi se da mu je istekao rok, ovo mleko treba baciti!', true, false, true, 2, 3);
 
 --STAVKE
 INSERT INTO stavka(kolicina, artikal, korisnik) VALUES(20, 1, 2);

@@ -118,28 +118,32 @@
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------ --> 
 
-<!-- Prikaz pocetne korpe-->
+<!-- Prikaz dodavanja porudzbine -->
 
-		<div id="pocetnaKorpaTable" style="display: none;">
-	        <table class="table">
-	            <thead>
-	              <tr>
-	                <th style="text-align: center;">ID</th>
-	                <th style="text-align: center;">Naziv</th>
-	                <th style="text-align: center;">Opis</th>
-	                <th style="text-align: center;">Cena</th>
-	                <th style="text-align: center;">Prodavnica</th>
-	                <th></th>
-	              </tr>
-	            </thead>
-	            <tbody id="tbodyPocetnaKorpa">
-	  
-	            </tbody>
-	        </table>
+        <div id="dodajPorudzbinu" class="table" style="display: none;">
+        <h2>Dodavanje porudzbine</h2>
+            <div class="form-group">
+                <label>Komentar</label> 
+                <input type="text"
+                class="form-control col-sm-5" id="komentarInput" placeholder="">
+                 <input type="hidden" id="id">
 
-		</div>
+                 <label>Ocena</label>
+                 <input type="number"
+                 class="form-control col-sm-5" min="1" max="5" id="ocenaInput" placeholder="">
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------ --> 
+                 <input type="hidden"
+                 class="form-control col-sm-5" id="artikalInput" value=session.odabranaPorudzbina.idArtikla placeholder=""> 
+ 
+                 <input type="hidden"
+                 class="form-control col-sm-5" id="kupacInput" value=session.odabranaPorudzbina.idKupac placeholder="">
+			 
+            </div>
+          
+            <button onclick="DodajPorudzbinu()" type="submit" class="btn btn-primary">Dodaj</button>
+       		<button id="nazad" class="btn btn-primary" onclick="ZatvoriDodavanjePorudzbine()">Vrati</button>
+        </div>
+
 
 <!-- KOMENTARI--------------------------------------------------------------------------------------------------------------------- -->
 

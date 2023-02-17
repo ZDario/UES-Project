@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,9 +30,6 @@ public class Porudzbina {
 	@Column(name = "komentar", nullable = false)
 	private String komentar;
 	
-	@Column(name = "cena", nullable = false)
-	private double cena;
-	
 	@Column(name = "dostavljeno", nullable = false)
 	private boolean dostavljeno;
 	
@@ -45,22 +43,26 @@ public class Porudzbina {
 	@JoinColumn(name = "korisnik", referencedColumnName = "idKorisnik", nullable = false)
 	private Kupac kupac;
 	
+	@OneToOne
+	@JoinColumn(name = "artikal", referencedColumnName = "idArtikal", nullable = false)
+	private Artikal artikal;
+	
 	public Porudzbina() {
 		super();
 	}
 
-	public Porudzbina(Long idPorudzbina, Date satnica, int ocena, String komentar, double cena, boolean dostavljeno,
-			boolean anonimanKomentar, boolean arhiviranKomentar, Kupac kupac) {
+	public Porudzbina(Long idPorudzbina, Date satnica, int ocena, String komentar, boolean dostavljeno,
+			boolean anonimanKomentar, boolean arhiviranKomentar, Kupac kupac, Artikal artikal) {
 		super();
 		this.idPorudzbina = idPorudzbina;
 		this.satnica = satnica;
 		this.ocena = ocena;
 		this.komentar = komentar;
-		this.cena = cena;
 		this.dostavljeno = dostavljeno;
 		this.anonimanKomentar = anonimanKomentar;
 		this.arhiviranKomentar = arhiviranKomentar;
 		this.kupac = kupac;
+		this.artikal = artikal;
 	}
 
 	public Long getIdPorudzbina() {
@@ -95,14 +97,6 @@ public class Porudzbina {
 		this.komentar = komentar;
 	}
 
-	public double getCena() {
-		return cena;
-	}
-
-	public void setCena(double cena) {
-		this.cena = cena;
-	}
-
 	public boolean isDostavljeno() {
 		return dostavljeno;
 	}
@@ -135,4 +129,13 @@ public class Porudzbina {
 		this.kupac = kupac;
 	}
 
+	public Artikal getArtikal() {
+		return artikal;
+	}
+
+	public void setArtikal(Artikal artikal) {
+		this.artikal = artikal;
+	}
+
+	
 }

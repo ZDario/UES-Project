@@ -41,8 +41,6 @@ public class PorudzbinaES {
 	@Field(type = FieldType.Boolean)
 	private boolean anonimanKomentar;
 	
-	@Field(type = FieldType.Double)
-	private double cena;
 	
 	//mapper
 	public PorudzbinaES(Porudzbina porudzbina) {
@@ -51,7 +49,6 @@ public class PorudzbinaES {
 		this.ocena = porudzbina.getOcena();
 		this.komentar = porudzbina.getKomentar();
 		this.anonimanKomentar = porudzbina.isAnonimanKomentar();
-		this.cena = porudzbina.getCena();
 	}
 	
 }

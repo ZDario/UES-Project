@@ -414,7 +414,7 @@ function PrikazSvihArtikalaProdavacaZaNarucivanje(id){
                         +'<td align="center">'+result[artikal].prodavac+'</td>'
                         +'<td>'
                         	+'<button type="submit" class="btn btn-success" style="margin-right: 5%;" onclick="PrikazSvihKomentaraArtikla('+result[artikal].idArtikla+')">KOMENTARI</button>'
-	                        +'<button id="narucivanje" class="btn btn-success" onclick="PrikazPocetneKorpe('+result[artikal].idArtikla+')">Dodaj u korpu</button>'
+	                        +'<button id="narucivanje" class="btn btn-success" onclick="prikaziFormuZaDodavanjePorudzbine()">Dodaj porudzbinu</button>'
 //	                        +'<a th:href="|pocetnaKorpa?id=${'+result[artikal].idArtikla+'}|" class="btn btn-primary" id="kupi">Dodaj u listu zelja</a>'
                         +'</td>'
                     +'</tr>'
@@ -431,6 +431,67 @@ function PrikazSvihArtikalaProdavacaZaNarucivanje(id){
     prikaziArtikleProdavcaa();
     
 }
+function ZatvoriDodavanjePorudzbine(){
+	$('#dodajPorudzbinu').hide();
+}
+
+function prikaziFormuZaDodavanjePorudzbine(){
+	var dodajPorudzbinu = $("#dodajPorudzbinu").slideDown();
+	dodajPorudzbinu.show();
+}
+
+function DodajPorudzbinu(){
+
+    var greska = "";
+    var ocenaInput = "";
+    var komentarInput = "";
+
+    ocenaInput = $("#ocenaInput").val();
+    komentarInput = $("#komentarInput").val();
+    kupacInput = $("#kupacInput").val();
+    artikalInput = $("#artikalInput").val();
+
+    var ocenaGreska;
+    var komentarGreska;
+    
+    if(ocenaInput <= 0 || ocenaInput > 5){
+    	ocenaGreska = true;
+        greska += "\nOcena mora biti od 1 do 5!";
+    }
+    if(komentarInput === ""){
+    	komentarGreska = true;
+        greska += "\nMorate uneti komentar!";
+    }
+
+    if(ocenaGreska || komentarGreska){
+        alert(greska);
+    }
+    else{
+        var formData = {
+            "ocena" : ocenaInput,
+            "komentar" : komentarInput,
+            "idKupac" : kupacInput,
+            "idArtikla" : artikalInput,
+        }
+
+        $.ajax({
+            url : "http://localhost:8080/api/porudzbina",
+            type : "POST",
+            contentType: 'application/json; charset=utf-8',
+            data : JSON.stringify(formData),
+            success: function(){
+                alert('Porudzbina je uspesno dodata!');
+//                odrediPrikaz('sviArtikli');
+            },
+            error : function(e){
+//                alert('Doslo je do neke greške!');
+                console.log("ERROR: ", e);
+            }
+        });
+    }
+
+}
+
 
 function PrikazPocetneKorpe(id){
 
