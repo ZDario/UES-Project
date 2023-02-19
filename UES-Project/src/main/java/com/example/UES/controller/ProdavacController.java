@@ -1,6 +1,7 @@
 package com.example.UES.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -113,7 +114,7 @@ public class ProdavacController {
 		prodavac.setNazivProdavca(prodavacDTO.getNazivProdavca());
 		prodavac.setEmail(prodavacDTO.getEmail());
 		prodavac.setAdresa(prodavacDTO.getAdresa());
-		prodavac.setPoslujeOd(prodavacDTO.getPoslujeOd());
+		prodavac.setPoslujeOd(new Date());
 		prodavac.setTipKorisnika(TipKorisnika.PRODAVAC);
 		
 		prodavac = prodavacServiceInterface.save(prodavac);

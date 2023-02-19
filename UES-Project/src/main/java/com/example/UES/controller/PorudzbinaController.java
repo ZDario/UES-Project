@@ -81,7 +81,7 @@ public class PorudzbinaController {
 		por.setOcena(porudzbinaDTO.getOcena());
 		por.setKomentar(porudzbinaDTO.getKomentar());
 		por.setDostavljeno(true); 
-		por.setAnonimanKomentar(true); 
+		por.setAnonimanKomentar(false); 
 		por.setArhiviranKomentar(true); 
 		por.setKupac(kupac);
 		por.setArtikal(artikal);

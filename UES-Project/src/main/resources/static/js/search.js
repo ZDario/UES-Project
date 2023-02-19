@@ -100,6 +100,9 @@ function pretragaPoNazivuArtikla(){
 	          $('#result').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "id"){
+						$('#result').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	                $('#result').append('<li>' + key + ': ' + value + '</li>');
 	              });
@@ -168,6 +171,9 @@ function pretragaPoOpisuArtikla(){
 	          $('#result').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "id"){
+						$('#result').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	                $('#result').append('<li>' + key + ': ' + value + '</li>');
 	              });
@@ -205,6 +211,9 @@ function pretragaPoCeniArtikla(){
 	          $('#result').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "naziv"){
+						$('#result').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	                $('#result').append('<li>' + key + ': ' + value + '</li>');
 	              });
@@ -245,6 +254,9 @@ function pretragaPoNazivuAndCeniArtikla(){
 	          $('#result').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "naziv"){
+						$('#result').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	                $('#result').append('<li>' + key + ': ' + value + '</li>');
 	              });
@@ -285,6 +297,9 @@ function pretragaPoNazivuOrCeniArtikla(){
 	          $('#result').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "naziv"){
+						$('#result').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	                $('#result').append('<li>' + key + ': ' + value + '</li>');
 	              });
@@ -320,6 +335,9 @@ function pretragaPoKomentaruPorudzbine(){
 	          $('#resultPorudzbina').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "id"){
+						$('#resultPorudzbina').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	            	  if(result.anonimanKomentar===true){
 	            		  result.anonimanKomentar="Komentar je anoniman"
@@ -365,6 +383,9 @@ function pretragaPorudzbinePoOceni(){
 	          $('#resultPorudzbina').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "datum"){
+						$('#resultPorudzbina').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	            	  
 	            	  if(result.anonimanKomentar===true){
@@ -375,7 +396,7 @@ function pretragaPorudzbinePoOceni(){
 	            	  }
 	            	  
 	            	  $('#resultPorudzbina').append('<li>' + key + ': ' + value + '</li>');
-	            	  
+
 	              });
 	          }
 	          console.log("SUCCESS : ", data);
@@ -414,6 +435,9 @@ function pretragaPoKomentaruAndOceniPorudzbine(){
 	          $('#resultPorudzbina').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "datum"){
+						$('#resultPorudzbina').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	            	  
 	            	  if(result.anonimanKomentar===true){
@@ -463,6 +487,9 @@ function pretragaPoKomentaruOrOceniPorudzbine(){
 	          $('#resultPorudzbina').empty();
 	          for(i = 0; i < data.length; i++){
 	              var result = data[i]
+	              if(key = "datum"){
+						$('#resultPorudzbina').append('<li class="blank"></li>');
+				  }
 	              $.each(result, function(key, value) {
 	            	  
 	            	  if(result.anonimanKomentar===true){

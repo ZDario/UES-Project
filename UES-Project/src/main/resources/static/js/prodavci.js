@@ -64,7 +64,6 @@ function submitProdavac(){
     var nazivProdavcaInput = "";
     var emailInput = "";
     var adresaInput = "";
-    var poslujeOdInput = "";
     
     imeInput = $("#ime").val();
     prezimeInput = $("#prezime").val();
@@ -73,7 +72,6 @@ function submitProdavac(){
     nazivProdavcaInput = $("#nazivProdavca").val();
     emailInput = $("#email").val();
     adresaInput = $("#adresa").val();
-    poslujeOdInput = $("#poslujeOd").val();
 
     var imeGreska;
     var prezimeGreska;
@@ -82,7 +80,6 @@ function submitProdavac(){
     var nazivProdavcaGreska;
     var emailGreska;
     var adresaGreska;
-    var poslujeOdGreska;
     
     if(imeInput === ""){
     	imeGreska = true;
@@ -112,12 +109,8 @@ function submitProdavac(){
     	adresaGreska = true;
         greska += "\nMorate uneti adresu prodavca!";
     }
-    if(poslujeOdInput === ""){
-    	poslujeOdGreska = true;
-        greska += "\nMorate uneti kad je prodavac poceo da radi!";
-    }
 
-    if(imeGreska || prezimeGreska || korImeGreska || lozinkaGreska || nazivProdavcaGreska || emailGreska || adresaGreska || poslujeOdGreska){
+    if(imeGreska || prezimeGreska || korImeGreska || lozinkaGreska || nazivProdavcaGreska || emailGreska || adresaGreska){
         alert(greska);
     }
     else{
@@ -129,7 +122,6 @@ function submitProdavac(){
             "nazivProdavca" : nazivProdavcaInput,
             "email" : emailInput,
             "adresa" : adresaInput,
-            "poslujeOd" : poslujeOdInput
         }
 
         $.ajax({

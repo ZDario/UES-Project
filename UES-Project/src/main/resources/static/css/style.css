@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: rgb(175, 171, 171);
+    background-color:rgb(175, 171, 171);
     background-size: cover;
 }
 
@@ -12,8 +12,10 @@ main{
     width: 90%;
     height: 200vh;
     margin: 0 auto;
-    background-color: rgba(219, 234, 235, 0.7);
+    background-color: rgb(190, 204, 205); 
     font-family: 'Heebo', sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 h1{
@@ -126,4 +128,26 @@ form{
 #DugmeOdjavaKupac{
 	margin-right: 3%;
 	padding: 20px;
+}
+
+li {
+	list-style: none;
+  	background: white;
+  	width: 800px;
+	color: #007BFF;	
+  	padding: 5px;
+  	margin-right: 10px;
+  	opacity: 0.9;
+}
+
+.blank {
+	background: grey;
+	height:2px;
+	opacity: 90%;
+}
+
+.table {
+	background-color: white;
+	margin-top: 20px;
+	opacity: 0.9;
 }
